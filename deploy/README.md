@@ -29,7 +29,7 @@ cp .env.example .env
 $EDITOR .env
 
 # seed DB from JSON (one row per persona in agents/*.json)
-pnpm setup
+pnpm bootstrap
 
 # optional — fetch ~1 GB of sample banks if you plan to run the studio remotely
 # pnpm samples:fetch
@@ -47,7 +47,7 @@ ssh maestrobot@<vps>
 cd ~/maestrobot
 git pull
 pnpm install          # no-op if lockfile unchanged
-pnpm setup            # idempotent — re-imports JSON if agents changed
+pnpm bootstrap            # idempotent — re-imports JSON if agents changed
 pm2 reload deploy/ecosystem.config.cjs
 ```
 
@@ -55,7 +55,7 @@ For the typical prompt/persona tweak flow:
 
 1. Edit `agents/<callSign>.json` locally.
 2. `git commit && git push`.
-3. On the VPS: `git pull && pnpm setup && pm2 restart maestrobot-<callSign>`.
+3. On the VPS: `git pull && pnpm bootstrap && pm2 restart maestrobot-<callSign>`.
 
 ## Secrets layout
 

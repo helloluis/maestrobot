@@ -19,7 +19,7 @@ deploy/        PM2 ecosystem + deploy notes for VPS hosting
 
 ```bash
 pnpm install
-pnpm setup                # copies .env.example → .env, imports all agents/*.json into SQLite
+pnpm bootstrap                # copies .env.example → .env, imports all agents/*.json into SQLite
 # edit .env — add at least FIREWORKS_API_KEY (or NIM/Groq/DeepSeek/DashScope/Arcee)
 pnpm samples:fetch        # optional — ~1 GB of drum/sample banks, only if you want the studio to play audio locally
 pnpm agent:run plum-sibelius --dry-run    # compose one stem and exit
