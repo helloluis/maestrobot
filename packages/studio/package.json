@@ -1,0 +1,25 @@
+{
+  "name": "@maestrobot/studio",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@strudel/core": "^1.1.0",
+    "@strudel/mini": "^1.1.0",
+    "@strudel/soundfonts": "^1.1.0",
+    "@strudel/tonal": "^1.1.0",
+    "@strudel/transpiler": "^1.1.0",
+    "@strudel/webaudio": "^1.1.0",
+    "better-sqlite3": "^11.5.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "vite": "^5.4.0"
+  }
+}

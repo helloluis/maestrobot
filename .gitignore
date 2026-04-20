@@ -1,0 +1,20 @@
+node_modules/
+.env
+.env.local
+*.log
+*.tsbuildinfo
+dist/
+journal/
+packages/studio/public/samples/
+
+# SQLite — private operational state (contains Nostr privkeys and
+# apoc agent ids). Seed from agents/*.json via `pnpm setup`.
+maestrobot.db
+maestrobot.db-wal
+maestrobot.db-shm
+*.db
+*.db-wal
+*.db-shm
+
+# Local VS Code multi-root workspace files — per-dev, not project config.
+*.code-workspace

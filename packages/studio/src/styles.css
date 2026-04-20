@@ -1,0 +1,367 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b0b0c;
+  --bg-2: #141416;
+  --border: #22252b;
+  --ink: #e7e7ea;
+  --muted: #8b8f98;
+  --accent: #6fe05b;
+  --error: #ff5a66;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.55;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-2);
+}
+
+header .eyebrow {
+  color: var(--muted);
+  letter-spacing: 0.22em;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+header h1 {
+  margin: 4px 0 6px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: 0;
+}
+
+aside {
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  background: var(--bg-2);
+}
+
+.aside-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.aside-head .label {
+  color: var(--muted);
+  letter-spacing: 0.22em;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+#stem-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#stem-list .empty {
+  padding: 16px;
+  color: var(--muted);
+}
+
+#stem-list .stem {
+  padding: 10px 14px 10px 14px;
+  border-bottom: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+#stem-list .stem:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+#stem-list .stem.active {
+  background: rgba(255, 255, 255, 0.04);
+  border-left-color: var(--persona-color, var(--accent));
+}
+
+#stem-list .stem-title {
+  font-weight: 500;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+#stem-list .stem-persona-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#stem-list .stem-swatch {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--persona-color, var(--muted));
+  flex-shrink: 0;
+}
+
+#stem-list .stem-persona-name {
+  color: var(--muted);
+  letter-spacing: 0.16em;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+#stem-list .stem-meta {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+#stem-list .stem-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--error);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+}
+
+#stem-list .stem.has-error .stem-title {
+  color: var(--error);
+}
+
+#player {
+  padding: 20px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: auto;
+}
+
+#stem-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#stem-title-block .stem-title-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+#stem-title-main {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.persona {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--persona-color, var(--accent));
+  background: var(--bg-2);
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.persona-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.persona-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.persona-names {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.persona-display {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.persona-callsign {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+.persona-bio {
+  font-size: 12px;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+.persona-meta {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding-top: 4px;
+  border-top: 1px dashed var(--border);
+  margin-top: 4px;
+}
+
+#code {
+  width: 100%;
+  min-height: 320px;
+  padding: 12px;
+  background: var(--bg-2);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.55;
+  resize: vertical;
+  outline: none;
+  white-space: pre;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+button {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--ink);
+}
+
+button.primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+button.primary:hover {
+  filter: brightness(1.05);
+}
+
+button.primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+button.ghost {
+  color: var(--muted);
+  border-color: var(--border);
+  padding: 4px 10px;
+  font-size: 10px;
+}
+
+details {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  background: var(--bg-2);
+}
+
+details summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+details[open] summary {
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.voice-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.voice-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.voice-label {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.voice-body pre {
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 10px;
+}
+
+.error {
+  color: var(--error);
+  padding: 10px;
+  border: 1px solid var(--error);
+  display: none;
+}

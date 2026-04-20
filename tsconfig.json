@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "include": ["scripts/**/*.ts"],
+  "compilerOptions": {
+    "noEmit": true,
+    "paths": {
+      "@maestrobot/providers": ["./packages/providers/src/index.ts"],
+      "@maestrobot/agent": ["./packages/agent/src/index.ts"],
+      "@maestrobot/db": ["./packages/db/src/index.ts"]
+    }
+  }
+}

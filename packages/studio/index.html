@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>maestrobot studio</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="eyebrow">[ MAESTROBOT STUDIO ]</div>
+      <h1>audition · before you commit</h1>
+      <div id="boot-status" class="muted">booting strudel runtime…</div>
+    </header>
+    <main>
+      <aside>
+        <div class="aside-head">
+          <span class="label">stems</span>
+          <button id="refresh" class="ghost">refresh</button>
+        </div>
+        <ul id="stem-list"></ul>
+      </aside>
+      <section id="player">
+        <div id="stem-title-block" hidden>
+          <div class="stem-title-eyebrow muted">[ stem title ]</div>
+          <h2 id="stem-title-main"></h2>
+        </div>
+
+        <article id="persona-block" class="persona" hidden>
+          <div class="persona-head">
+            <div id="persona-swatch" class="persona-swatch" aria-hidden="true"></div>
+            <div class="persona-names">
+              <div id="persona-display" class="persona-display"></div>
+              <div id="persona-callsign" class="persona-callsign muted"></div>
+            </div>
+          </div>
+          <div id="persona-bio" class="persona-bio muted"></div>
+          <div id="persona-meta" class="persona-meta muted"></div>
+        </article>
+
+        <textarea id="code" spellcheck="false" rows="18"></textarea>
+        <div class="controls">
+          <button id="play" class="primary" disabled>▶ play</button>
+          <button id="stop">■ stop</button>
+          <span id="status" class="muted">idle</span>
+        </div>
+
+        <details id="voice-details">
+          <summary>persona voice — style prompt &amp; taste</summary>
+          <div class="voice-body">
+            <div class="voice-field">
+              <div class="voice-label">style prompt</div>
+              <pre id="style-prompt"></pre>
+            </div>
+            <div class="voice-field">
+              <div class="voice-label">loves</div>
+              <pre id="taste-loves"></pre>
+            </div>
+            <div class="voice-field">
+              <div class="voice-label">hates</div>
+              <pre id="taste-hates"></pre>
+            </div>
+          </div>
+        </details>
+
+        <details id="spec-details">
+          <summary>spec (structured voices sent to emitter)</summary>
+          <pre id="spec-json"></pre>
+        </details>
+        <details id="plan-details">
+          <summary>plan (prose from the planner model)</summary>
+          <pre id="plan"></pre>
+        </details>
+        <pre id="error" class="error"></pre>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
